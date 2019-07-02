@@ -20,7 +20,7 @@ trait BaseApiRepositoryTrait
     private function classNameForResponse($is_plural = 0)
     {
         $class_name = Str::snake(class_basename($this->model()));
-        return $is_plural ? str_plural($class_name) : $class_name;
+        return $is_plural ? Str::plural($class_name) : $class_name;
     }
 
     public function index()
@@ -48,9 +48,9 @@ trait BaseApiRepositoryTrait
 
     public function update($resource_id, $request_data)
     {
-        Validator::make($request_data, $this->validationRules())->validate();
-
         $resource = $this->model()::findOrFail($resource_id);
+
+        Validator::make($request_data, $this->validationRules($resource_id))->validate();
 
         $resource->update($request_data);
 

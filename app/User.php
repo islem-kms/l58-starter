@@ -8,15 +8,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 
 /**
- * Class Pet
+ * Class User
  *
- * @package Petstore30
+ * @package Users
  *
  * @author  Islem Khemissi <khemissi.islem@gmail.com>
  *
  * @OA\Schema(
  *     description="User model",
- *     title="User model",
+ *     title="User",
  *     required={"name", "email"},
  *     @OA\Xml(
  *         name="User"
