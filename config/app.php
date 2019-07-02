@@ -228,4 +228,54 @@ return [
 
     ],
 
+    'debug_blacklist' => [
+        '_ENV' => [
+            'APP_KEY',
+            'APP_NAME',
+            'APP_ENV',
+            'APP_DEBUG',
+            'APP_URL',
+            'DB_CONNECTION',
+            'DB_HOST',
+            'DB_PORT',
+            'DB_DATABASE',
+            'DB_USERNAME',
+            'DB_PASSWORD',
+            'REDIS_PASSWORD',
+            'MAIL_PASSWORD',
+            'PUSHER_APP_KEY',
+            'PUSHER_APP_SECRET',
+            'SERVER_ADDR',
+            'REMOTE_PORT',
+            'REMOTE_ADDR',
+            'DOCUMENT_ROOT',
+            'SCRIPT_FILENAME',
+        ],
+        '_SERVER' => [
+            'APP_KEY',
+            'APP_NAME',
+            'APP_ENV',
+            'APP_DEBUG',
+            'APP_URL',
+            'DB_CONNECTION',
+            'DB_HOST',
+            'DB_PORT',
+            'DB_DATABASE',
+            'DB_USERNAME',
+            'DB_PASSWORD',
+            'REDIS_PASSWORD',
+            'MAIL_PASSWORD',
+            'PUSHER_APP_KEY',
+            'PUSHER_APP_SECRET',
+            'SERVER_ADDR',
+            'REMOTE_PORT',
+            'REMOTE_ADDR',
+            'DOCUMENT_ROOT',
+            'SCRIPT_FILENAME'
+        ],
+        '_POST' => [
+            'password',
+        ],
+    ]
+
 ];

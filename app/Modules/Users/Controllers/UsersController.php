@@ -7,7 +7,7 @@
 namespace App\Modules\Users\Controllers;
 
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseApiController as Controller;
 use App\Modules\Users\Repositories\UsersRepository;
 use App\User;
 use Illuminate\Http\Request;
@@ -30,10 +30,35 @@ class UsersController extends Controller
      */
     public function __construct(UsersRepository $usersRepository, User $model)
     {
+        $this->middleware('auth:api');
+
         $this->usersRepository = $usersRepository;
         $this->model = $model;
     }
 
+    /**
+     * List All users
+     *
+     * @OA\Get(
+     *   path="/users",
+     *   summary="List all users",
+     *   tags = {"users"},
+     *   operationId="index",
+     *   @OA\Response(response=200, description="successful operation",
+     *     @OA\JsonContent(
+     *       type="array",
+     *       @OA\Items(ref="#/components/schemas/User")
+     *     ),
+     *   ),
+     *   @OA\Response(response=401, description="Unauthorized"),
+     *   security={
+     *     {
+     *       "Password Based": {*}
+     *     }
+     *   }
+     * )
+     *
+     */
     public function index()
     {
         return $this->usersRepository->index();
