@@ -46,8 +46,11 @@ class UsersController extends Controller
      *   operationId="index",
      *   @OA\Response(response=200, description="successful operation",
      *     @OA\JsonContent(
-     *       type="array",
-     *       @OA\Items(ref="#/components/schemas/User")
+     *       type="object",
+     *       @OA\Property(property="status", type="string", example="success"),
+     *       @OA\Property(property="code", type="integer", example=200),
+     *       @OA\Property(property="message", type="string", example="users_list"),
+     *       @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/User")),
      *     ),
      *   ),
      *   @OA\Response(response=401, description="Unauthorized"),
